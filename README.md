@@ -12,6 +12,6 @@ Además, se añadió soporte para múltiples tokens ERC-20 y una contabilidad in
 
 - DECISIONES DE DISEÑO
      - Se eligió un modelo de propietario único para el control de acceso, priorizando simplicidad y seguridad sobre flexibilidad. En un entorno más complejo se podrían usar librerías como AccessControl de OpenZeppelin para definir roles múltiples (por ejemplo, administradores y auditores).
-    - La gestión de tokens ERC-20 se resolvió mediante un mapping anidado (balances[token][user]), lo cual simplifica la contabilidad interna a costa de un ligero incremento en el consumo de gas.
+    - La gestión de tokens ERC-20 se resolvió mediante un mapping anidado (balances(token),(user)), lo cual simplifica la contabilidad interna a costa de un ligero incremento en el consumo de gas.
     - Las funciones receive() y fallback() se rediseñaron para redirigir automáticamente a deposit(), garantizando coherencia en la lógica de validación.
 Finalmente, se usaron variables constant e immutable donde fue posible para reducir costos de gas y reforzar la inmutabilidad de parámetros críticos.
